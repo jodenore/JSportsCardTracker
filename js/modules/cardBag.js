@@ -90,7 +90,7 @@ export function handleBagSubmit() {
     for (const bagCard of userState.bag) {
       await wait(3000);
       const newOrder = createActiveOrderObject(bagCard);
-      showToast(`#${newOrder.orderId} is preparing`, "success");
+      showToast(`Order #${newOrder.orderId} is preparing`, "success");
       userState.activeOrders.push(newOrder);
       userState.bag = userState.bag.filter((card) => {
         return card.id !== bagCard.id;

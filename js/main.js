@@ -1,3 +1,5 @@
+import { handleThemeSwitcher } from "./modules/theme.js";
+
 import {
   renderBagStats,
   renderBagCards,
@@ -16,7 +18,7 @@ import {
   renderPastOrders,
 } from "./modules/orders.js";
 
-// alert("test");
+handleThemeSwitcher();
 renderCards();
 cardShopFilter();
 renderBagStats();

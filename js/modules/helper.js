@@ -221,7 +221,6 @@ export function getRatingClass(rating) {
 
 export function findCardById(cardId) {
   const allCards = [...userState.cards.football, ...userState.cards.basketball];
-  console.log(allCards);
 
   return allCards.find((card) => card.id === cardId || null);
 }
