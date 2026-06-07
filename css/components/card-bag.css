@@ -1,0 +1,240 @@
+.card-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card-bag-summary {
+  display: grid;
+  gap: 0.4rem;
+  grid-area: 1rem;
+  margin-top: 1.25rem;
+}
+
+.bag-stat-card {
+  padding: 1rem 1rem 1.05rem;
+  border: 1px solid rgb(var(--border));
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    180deg,
+    rgb(var(--surface)) 0%,
+    rgb(var(--surface-alt)) 100%
+  );
+  box-shadow: var(--panel-shadow);
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.bag-stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.bag-stat-label {
+  color: rgb(var(--muted));
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bag-stat-value {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.bag-stat-count {
+  border-color: rgba(var(--border), 0.95);
+}
+
+.bag-stat-rarity-card {
+  border-color: rgba(var(--accent), 0.25);
+  background:
+    linear-gradient(135deg, rgba(var(--accent), 0.14), transparent 48%),
+    linear-gradient(
+      180deg,
+      rgb(var(--surface)) 0%,
+      rgb(var(--surface-alt)) 100%
+    );
+}
+
+#bag-rarity {
+  color: rgb(var(--accent));
+}
+
+.bag-stat-value-card {
+  border-color: rgba(var(--secondary), 0.25);
+  background:
+    linear-gradient(135deg, rgba(var(--secondary), 0.12), transparent 48%),
+    linear-gradient(
+      180deg,
+      rgb(var(--surface)) 0%,
+      rgb(var(--surface-alt)) 100%
+    );
+}
+
+.bag-stat-value-card .bag-stat-value {
+  color: rgb(var(--secondary));
+}
+
+.card-bag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.bag-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.95rem;
+  border: 1px solid rgb(var(--border));
+  border-radius: 1.3rem;
+  background-color: rgb(var(--surface));
+  animation: bagCardEnter 0.4s ease both;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3 ease;
+}
+
+.bag-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--accent), 0.28);
+  box-shadow: var(--panel-shadow);
+}
+
+.bag-card-image {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 1rem;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.bag-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.bag-card-name {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.bag-card-meta {
+  color: rgb(var(--muted));
+  line-height: 1.45;
+}
+
+.bag-card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.bag-card-rarity,
+.bag-card-value {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.bag-card-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: flex-start;
+  padding: 0.45rem;
+  border: 1px solid rgb(var(--border));
+  border-radius: 999px;
+  background-color: transparent;
+  color: rgb(var(--muted));
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.bag-card-remove:hover {
+  border-color: rgba(var(--danger), 0.4);
+  background-color: rgba(var(--danger), 0.1);
+  color: rgb(var(--danger));
+}
+
+.bag-card-rarity {
+  background-color: rgba(var(--accent), 0.14);
+  color: rgb(var(--accent));
+}
+
+.bag-card-value {
+  background-color: rgba(var(--secondary), 0.12);
+  color: rgb(var(--secondary));
+}
+
+/* confirm button */
+
+.card-bag-actions {
+  margin-top: 1.3rem;
+}
+
+.confirm-order-button {
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  border: 1px solid rgb(var(-accent));
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgb(var(--accent-soft)) 0%,
+    rgb(var(--accent)) 100%
+  );
+  color: rgb(var(--bg));
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  box-shadow: var(--panel-shadow);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.confirm-order-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+.confirm-order-button:disabled {
+  color: rgb(var(--muted));
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+  .card-bag-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@keyframes bagCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

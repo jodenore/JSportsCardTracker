@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SportsCardTracker</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <div class="header-bar">
+          <a href="#" class="site-logo" aria-label="SportsCardTracker home">
+            <span class="logo-mark">
+              <span class="logo-card"></span>
+              <span class="logo-pin"></span>
+            </span>
+
+            <span class="logo-text">
+              <span class="logo-title">JSportsCardTracker</span>
+              <span class="logo-tag">Card Tracking</span>
+            </span>
+          </a>
+
+          <div class="header-actions">
+           <button
+                class="btn theme-toggle"
+                id="theme-toggle"
+                type="button"
+                aria-label="Toggle Theme"
+              >
+                <i class="fa-solid fa-moon"></i>
+              </button>
+    
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main py-5">
+      <section class="card-dashboard-section py-4">
+        <div class="container">
+          <div class="row g-5">
+            <!-- Card Shop -->
+            <div class="col-12 col-lg-8">
+              <section class="cards-section section-panel" id="cards">
+                <div class="section-head">
+                  <h2 class="section-title">Available Cards</h2>
+                  <div class="filter-container">
+                    <button
+                      type="button"
+                      class="btn btn-light filter-button"
+                      data-sport="football"
+                    >
+                      Football
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-light filter-button active-filter"
+                      data-sport="basketball"
+                    >
+                      Basketball
+                    </button>
+                  </div>
+                </div>
+
+                <div class="card-shop">
+                  <div class="list-header">
+                    <span>Rating</span>
+                    <span>Player</span>
+                    <span>Age</span>
+                    <span>Rarity</span>
+                    <span>Value</span>
+                    <span>Vault Impact</span>
+                  </div>
+                  <div class="card-list">
+                    <!-- Card-list -->
+                  </div>
+                </div>
+              </section>
+            </div>
+            <!-- Card Bag -->
+            <div class="col-12 col-lg-4">
+              <div class="card-sidebar">
+                <section class="card-bag section-panel">
+                  <div class="section-head">
+                    <h2 class="section-title">Card Bag</h2>
+                  </div>
+
+                  <div class="card-bag-summary">
+                    <article class="bag-stat-card bag-stat-count">
+                      <p class="bag-stat-label">Cards Selected</p>
+                      <p class="bag-stat-value" id="bag-count">0</p>
+                    </article>
+                    <article class="bag-stat-card bag-stat-rarity-card">
+                      <p class="bag-stat-label">Rarity Gain</p>
+                      <p class="bag-stat-value" id="bag-rarity">+0</p>
+                    </article>
+                    <article class="bag-stat-card bag-stat-value-card">
+                      <p class="bag-stat-label">Bag Total</p>
+                      <p class="bag-stat-value" id="bag-value">£0</p>
+                    </article>
+                  </div>
+
+                  <div class="card-bag-list" id="card-bag"></div>
+
+                  <div class="card-bag-actions">
+                    <button
+                      type="button"
+                      class="confirm-order-button btn"
+                      id="confirm-order"
+                    >
+                      Confirm Order
+                    </button>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <section class="order-summary section-panel" id="orders">
+              <div class="section-head">
+                <h2 class="section-title">Orders</h2>
+              </div>
+
+              <!-- Orders Tabs Nav -->
+              <ul
+                class="nav nav-pills order-tabs"
+                id="ordersTab"
+                role="tablist"
+              >
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="active-orders-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#active-orders-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="active-orders-pane"
+                    aria-selected="true"
+                  >
+                    Active Orders
+                  </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="past-orders-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#past-orders-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="past-orders-pane"
+                    aria-selected="false"
+                  >
+                    Past Orders
+                  </button>
+                </li>
+              </ul>
+              <!-- Active Orders -->
+              <div class="tab-content orders-tab-content" id="ordersTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="active-orders-pane"
+                  role="tabpanel"
+                  aria-labelledby="active-orders-tab"
+                  tabindex="0"
+                >
+                  <div class="order-summary-stats">
+                    <p class="order-stat">0 active Orders</p>
+                    <p class="order-stat">0 preparing</p>
+                    <p class="order-stat">0 shipped</p>
+                  </div>
+                  <div class="orders-list order-summary-list">
+                    <!-- Current order summaries -->
+                    <article class="order-card" data-order-id="card-092">
+                      <div class="order-card-head">
+                        <p class="order-card-id">Order #SCT-092</p>
+                        <span class="order-status status-preparing"
+                          >Preparing</span
+                        >
+                      </div>
+                      <div class="order-card-body">
+                        <img
+                          src="assets/images/default-card.png"
+                          alt="Shai Gilly-Alexander card portrait"
+                          class="order-card-image"
+                        />
+                        <div class="order-card-content">
+                          <p class="order-card-name">Shai Gilgeous-Alexander</p>
+                          <p class="order-card-meta">
+                            Basketball • Oklahoma City Thunder
+                          </p>
+                          <p class="order-card-delivery">ETA: 12 Jun 2026</p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+
+                <div
+                  class="tab-pane fade"
+                  id="past-orders-pane"
+                  role="tabpanel"
+                  aria-labelledby="past-orders-tab"
+                  tabindex="0"
+                >
+                  <div class="order-summary-stats">
+                    <!-- <p class="order-stat">0 completed orders</p> -->
+                    <p class="order-stat">0 delivered</p>
+                    <p class="order-stat">0 cancelled</p>
+                  </div>
+
+                  <div class="orders-list past-orders-list">
+                    <!-- Past Order List -->
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- toasts -->
+
+    <div class="toast-container position-fixed top-0 end-0 p-3" id="toast-zone">
+      <div
+        id="app-toast"
+        class="toast align-items-center border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body" id="toast-message"></div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/67012fe73b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
